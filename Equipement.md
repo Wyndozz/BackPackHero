@@ -39,6 +39,8 @@ mana stone : ![image](https://user-images.githubusercontent.com/117275175/227732
 
 wand : ![image](https://user-images.githubusercontent.com/117275175/227732273-f70f93b5-1eb8-4f99-9d28-ee39d7eaf92b.png)
 
+gold : ![image](https://user-images.githubusercontent.com/117275175/227732311-843bedbb-1153-4de6-8aac-f35df48e21d7.png)
+
 
 
 
