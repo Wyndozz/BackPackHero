@@ -23,3 +23,4 @@ Equipements :
 
 Armes : 
 melee : ![image](https://user-images.githubusercontent.com/117275175/227722871-9ff10c18-6dfd-4f8c-8b86-e14ef4c6a74d.png)
+;
