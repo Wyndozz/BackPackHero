@@ -17,7 +17,7 @@ Interface Monster
 - 1 classe pour chaque monstre
 
 Interfaces : 
-MeleeWeapon / RangedWeapon / Shield / Armor / Consumable / Magic
+MeleeWeapon / Bow / Arrow / Shield / Armor / Consumable / Magic
 
 Classe Hero
 
