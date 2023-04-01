@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import backpackhero.equipment.Equipment;
 import backpackhero.inventory.InventoryCell;
-import backpackhero.map.MapCell;
+import backpackhero.donjon.MapCell;
 
 public class SimpleGameData {
 	private final InventoryCell[][] inventory;

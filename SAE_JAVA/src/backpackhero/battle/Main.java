@@ -1,5 +1,7 @@
 package backpackhero.battle;
 
+import backpackhero.equipment.WoodenSword;
+
 public class Main {
 	public static void mobAction(Hero hero, Monsters mob, int action) {
 		if (action == 0) {
@@ -37,6 +39,8 @@ public class Main {
 		var mob1 = new SmallRatwolf(1);
 		var mob2 = new Ratwolf(1);
 		var hero = new Hero();
+		var sword = new WoodenSword();
+		hero.addEquipment(sword);
 		int action1 = 0;
 		int action2 = 0;
 		while ((mob1.alive() || mob2.alive()) && hero.alive()) {
@@ -66,9 +70,9 @@ public class Main {
 				} else {
 					var choice = hero.attackChoice();
 					if (choice == 1) {
-						mob1.dammageReceived(hero.attack());
+						mob1.dammageReceived(hero.attack(sword));
 					} else {
-						mob2.dammageReceived(hero.attack());
+						mob2.dammageReceived(hero.attack(sword));
 					}
 				}
 			}

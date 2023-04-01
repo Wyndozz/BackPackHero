@@ -5,13 +5,13 @@ public class SmallRatwolf implements Monsters {
 	private int shieldPoint;
 	private int addedShield;
 	private int attackPoint;
-	private final int number;
+	private final int id;
 
-	public SmallRatwolf(int number) {
+	public SmallRatwolf(int id) {
 		healthPoint = 32;
 		shieldPoint = 0;
 		attackPoint = (int) (Math.random() * 3) + 7;
-		this.number = number;
+		this.id = id;
 	}
 
 	@Override
@@ -65,14 +65,14 @@ public class SmallRatwolf implements Monsters {
 
 	@Override
 	public String toString() {
-		return "Small Ratwolf " + number;
+		return "Small Ratwolf n°" + id;
 	}
 
 	public void getHp() {
-		System.out.println("HealthPoint Small Ratwolf " + number + " = " + healthPoint);
+		System.out.println("HealthPoint Small Ratwolf n°" + id + " = " + healthPoint);
 	}
 
 	public void getShield() {
-		System.out.println("Shield Small Ratwolf " + number + " = " + shieldPoint);
+		System.out.println("Shield Small Ratwolf n°" + id + " = " + shieldPoint);
 	}
 }
