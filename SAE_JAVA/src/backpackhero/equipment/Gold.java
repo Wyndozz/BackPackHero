@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import backpackhero.Coordinates;
 
 public class Gold {
-	private final ArrayList<Coordinates> list;
+	private final ArrayList<Coordinates> coordinates;
+	private final int rarity;
 	private int quantity;
 	
 	public Gold() {
-		list = new ArrayList<>();
-		list.add(new Coordinates(0, 0));
+		coordinates = new ArrayList<>();
+		coordinates.add(new Coordinates(0, 0));
+		rarity = 1;
 		quantity = 0;
 	}
 	
@@ -24,5 +26,9 @@ public class Gold {
 		}
 		quantity -= value;
 		return true;
+	}
+	
+	public int getQuanity() {
+		return quantity;
 	}
 }

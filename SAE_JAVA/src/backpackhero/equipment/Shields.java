@@ -1,15 +1,14 @@
 package backpackhero.equipment;
 
-public interface Weapon {
+public interface Shields {
 	default int classId() {
-		return 1;
+		return 0;
 	}
-
+	
 	int getId();
-
-	int getDamage();
+	
+	int getBlock();
 
 	int getEnergy();
-	
-	int getMana();
+
 }

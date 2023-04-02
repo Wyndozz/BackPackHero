@@ -23,6 +23,19 @@ public class EnemyRoom implements DungeonRoom {
 		monsters.add(monster);
 	}
 	
+	public boolean oneAlive() {
+		for (var enemy : monsters) {
+			if (enemy.alive()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public ArrayList<Monsters> monsters() {
+		return monsters;
+	}
+	
 	@Override
 	public Coordinates coordinate() {
 		return coordinate;

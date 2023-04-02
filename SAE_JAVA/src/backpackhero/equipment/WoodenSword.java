@@ -8,13 +8,15 @@ public class WoodenSword implements Weapon, Equipment {
 	private final int damageDealt;
 	private final int energyCost;
 	private final int rarity;
-	private final ArrayList<Coordinates> list;
-	
+	private final ArrayList<Coordinates> coordinates;
+	private final int id;
+
 	public WoodenSword() {
 		damageDealt = 7;
 		energyCost = 1;
 		rarity = 1;
-		list = new ArrayList<>();
+		coordinates = new ArrayList<>();
+		id = 1;
 	}
 
 	@Override
@@ -25,5 +27,25 @@ public class WoodenSword implements Weapon, Equipment {
 	@Override
 	public int getEnergy() {
 		return energyCost;
+	}
+	
+	@Override
+	public int getMana() {
+		return 0;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public int classId() {
+		return 1;
+	}
+	
+	@Override
+	public String toString() {
+		return "l'épée en bois";
 	}
 }

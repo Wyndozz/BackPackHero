@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import backpackhero.equipment.Equipment;
 import backpackhero.equipment.Gold;
+import backpackhero.equipment.ManaStone;
+import backpackhero.equipment.Shields;
 import backpackhero.equipment.Weapon;
 
 public class Hero {
@@ -14,8 +16,9 @@ public class Hero {
 	private int attackPoint;
 	private int shieldPoint;
 	private int energy;
+	private final ArrayList<ManaStone> mana;
 	private Gold gold;
-	private ArrayList<Equipment> equipment;
+	private final ArrayList<Equipment> equipment;
 
 	public Hero() {
 		maxHealPoint = 40;
@@ -23,8 +26,8 @@ public class Hero {
 		attackPoint = 7;
 		shieldPoint = 0;
 		energy = 3;
-		gold = new Gold();
-		var equipment = new ArrayList<Equipment>();
+		mana = new ArrayList<>();
+		equipment = new ArrayList<>();
 	}
 
 	public int getAction() {
@@ -44,11 +47,15 @@ public class Hero {
 			healPoint = 0;
 		}
 	}
-	
-	public boolean canAttack(int e) {
+
+	public boolean canAction(int e) {
 		return energy >= e;
 	}
-	
+
+	public boolean canAction(ManaStone manaStone, int m) {
+		return manaStone.getMana() >= m;
+	}
+
 	public Equipment equipmentChoice(Equipment e) {
 		Objects.requireNonNull(e);
 		if (equipment.contains(e)) {
@@ -56,12 +63,21 @@ public class Hero {
 		}
 		return null;
 	}
-
 	public int attack(Weapon w) {
 		Objects.requireNonNull(w);
-		if (this.canAttack(w.getEnergy())) {
-			attackPoint = w.getDamage();
+		if (this.canAction(w.getEnergy())) {
 			energy -= w.getEnergy();
+			attackPoint = w.getDamage();
+			return attackPoint;
+		}
+		return 0;
+	}
+
+	public int attack(Weapon w, ManaStone manaStone) {
+		Objects.requireNonNull(w);
+		if (this.canAction(manaStone, w.getMana())) {
+			manaStone.removeMana(w.getMana());
+			attackPoint = w.getDamage();
 			return attackPoint;
 		}
 		return 0;
@@ -72,9 +88,16 @@ public class Hero {
 		return choice.nextInt();
 	}
 
-	public void shield() {
-		energy -= 1;
-		shieldPoint += 14;
+	public void shield(Shields shield) {
+		Objects.requireNonNull(shield);
+		if (this.canAction(shield.getEnergy())) {
+			shieldPoint += shield.getBlock();
+			energy -= shield.getEnergy();
+		}
+	}
+	
+	public ArrayList<Equipment> getEquipment() {
+		return equipment;
 	}
 
 	public int energy() {
@@ -90,20 +113,27 @@ public class Hero {
 		return healPoint > 0;
 	}
 	
+	public void newGold() {
+		gold = new Gold();
+	}
+	
+	public void addManaStone(int mana) {
+		this.mana.add(new ManaStone(mana));
+	}
+
 	public boolean addHealPoint() {
 		if (gold.removeGold(5) && healPoint != maxHealPoint) {
 			int diff = maxHealPoint - healPoint;
 			if (diff < 25) {
 				healPoint += diff;
-			}
-			else {
+			} else {
 				healPoint += 25;
 			}
 			return true;
 		}
 		return false;
 	}
-	
+
 	public boolean addMaxHealPoint() {
 		if (gold.removeGold(8)) {
 			maxHealPoint += 5;
@@ -111,16 +141,18 @@ public class Hero {
 		}
 		return false;
 	}
-	
+
 	public void addEquipment(Equipment e) {
+		Objects.requireNonNull(e);
 		equipment.add(e);
 	}
-	
+
 	public boolean removeEquipment(Equipment e) {
+		Objects.requireNonNull(e);
 		return equipment.remove(e);
 	}
 
- 	public void getShield() {
+	public void getShield() {
 		System.out.println("Vous avez " + shieldPoint + " point d'armure");
 	}
 

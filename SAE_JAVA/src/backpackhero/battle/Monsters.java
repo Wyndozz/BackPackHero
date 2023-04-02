@@ -36,4 +36,7 @@ public interface Monsters {
 	int healthPoint();
 
 	void addedShield();
+	
+	void getHp();
+	void getShield();
 }
