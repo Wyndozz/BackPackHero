@@ -32,6 +32,10 @@ public class EnemyRoom implements DungeonRoom {
 		return false;
 	}
 	
+	public boolean removeMonster(Monsters mob) {
+		return monsters.remove(mob);
+	}
+	
 	public ArrayList<Monsters> monsters() {
 		return monsters;
 	}

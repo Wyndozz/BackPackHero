@@ -40,8 +40,33 @@ public class RoughBuckler implements Equipment, Shields{
 	}
 	
 	@Override
+	public boolean needsMana() {
+		return false;
+	}
+	
+	@Override
+	public boolean needsEnergy() {
+		return true;
+	}
+
+	@Override
+	public boolean isSelectable() {
+		return true;
+	}
+
+	@Override
+	public boolean isTargetable() {
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return "le bouclier rugueux";
+	}
+
+	@Override
+	public int getMana() {
+		return 0;
 	}
 
 }

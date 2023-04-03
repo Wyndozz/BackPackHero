@@ -45,6 +45,26 @@ public class WoodenSword implements Weapon, Equipment {
 	}
 	
 	@Override
+	public boolean needsMana() {
+		return false;
+	}
+	
+	@Override
+	public boolean needsEnergy() {
+		return true;
+	}
+
+	@Override
+	public boolean isSelectable() {
+		return true;
+	}
+
+	@Override
+	public boolean isTargetable() {
+		return true;
+	}
+	
+	@Override
 	public String toString() {
 		return "l'épée en bois";
 	}

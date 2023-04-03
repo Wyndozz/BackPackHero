@@ -6,5 +6,6 @@ public interface Armors {
 	}
 
 	int getId();
-
+	
+	int getShield();
 }

@@ -46,8 +46,28 @@ public class Dart implements Equipment, Weapon{
 	}
 	
 	@Override
+	public boolean needsMana() {
+		return false;
+	}
+	
+	@Override
+	public boolean needsEnergy() {
+		return true;
+	}
+	
+	@Override
 	public String toString() {
 		return "la fléchette";
+	}
+
+	@Override
+	public boolean isSelectable() {
+		return true;
+	}
+
+	@Override
+	public boolean isTargetable() {
+		return false;
 	}
 	
 }

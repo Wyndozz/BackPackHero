@@ -43,4 +43,29 @@ public class ElectricWand implements Equipment, Weapon {
 	public int classId() {
 		return 1;
 	}
+	
+	@Override
+	public boolean needsMana() {
+		return true;
+	}
+	
+	@Override
+	public boolean needsEnergy() {
+		return false;
+	}
+
+	@Override
+	public boolean isSelectable() {
+		return true;
+	}
+
+	@Override
+	public boolean isTargetable() {
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "la baguette électrique";
+	}
 }
