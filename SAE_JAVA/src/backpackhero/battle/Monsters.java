@@ -8,12 +8,12 @@ public interface Monsters {
 	}
 
 	default int getFutureAttack() {
-		System.out.println("Attack " + this + " = " + attackTurn());
+		System.out.println(this + "va vous attaquer avec " + attackTurn() + " points de dégâts");
 		return attackTurn();
 	}
 
 	default int getFutureShield() {
-		System.out.println("Shield " + this + " +" + shieldTurn());
+		System.out.println(this + "s'ajoute " + shieldTurn() + " points de bouclier");
 		return shieldTurn();
 	}
 

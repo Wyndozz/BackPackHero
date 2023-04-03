@@ -71,10 +71,10 @@ public class SmallRatwolf implements Monsters {
 	}
 
 	public void getHp() {
-		System.out.println("HealthPoint Small Ratwolf n°" + number + " = " + healthPoint);
+		System.out.println("Point de vie de Small Ratwolf n°" + number + " = " + healthPoint);
 	}
 
 	public void getShield() {
-		System.out.println("Shield Small Ratwolf n°" + number + " = " + shieldPoint);
+		System.out.println("Bouclier de Small Ratwolf n°" + number + " = " + shieldPoint);
 	}
 }
